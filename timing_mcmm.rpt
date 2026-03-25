@@ -1,0 +1,231 @@
+************************************************************
+Report : Timing
+Design : CPU_CORE
+Tool   : ICC2 / PrimeTime
+************************************************************
+
+Mode: FUNC
+Corner: SS_0.72V_125C
+Scenario: FUNC_SS
+
+Startpoint: U1/REG1/Q (rising edge-triggered flip-flop)
+Endpoint: U2/REG2/D (rising edge-triggered flip-flop)
+Path Group: CLK_MAIN
+Path Type: max
+
+Point                                    Incr       Path
+------------------------------------------------------------
+clock CLK_MAIN (rise edge)               0.00       0.00
+U1/REG1/Q                                0.05       0.05
+U1/U2/A                                  0.20       0.25
+U2/U3/Z                                  0.30       0.55
+U2/REG2/D                                0.10       0.65
+
+data arrival time                                   0.65
+
+clock CLK_MAIN (rise edge)               1.20       1.20
+clock network delay                      0.10       1.30
+clock uncertainty                       -0.05       1.25
+
+data required time                                  1.25
+
+slack (VIOLATED)                                   -0.60
+
+
+Startpoint: U3/REG3/Q (rising edge-triggered flip-flop)
+Endpoint: U4/REG4/D (rising edge-triggered flip-flop)
+Path Group: CLK_MAIN
+Path Type: max
+
+Point                                    Incr       Path
+------------------------------------------------------------
+clock CLK_MAIN (rise edge)               0.00       0.00
+U3/REG3/Q                                0.08       0.08
+U3/U5/A                                  0.15       0.23
+U5/U6/Z                                  0.20       0.43
+U4/REG4/D                                0.07       0.50
+
+data arrival time                                   0.50
+
+clock CLK_MAIN (rise edge)               1.20       1.20
+clock network delay                      0.10       1.30
+clock uncertainty                       -0.05       1.25
+
+data required time                                  1.25
+
+slack (MET)                                        0.75
+
+
+------------------------------------------------------------
+
+Mode: FUNC
+Corner: FF_0.88V_0C
+Scenario: FUNC_FF
+
+Startpoint: U1/REG1/Q (rising edge-triggered flip-flop)
+Endpoint: U2/REG2/D (rising edge-triggered flip-flop)
+Path Group: CLK_MAIN
+Path Type: min
+
+Point                                    Incr       Path
+------------------------------------------------------------
+clock CLK_MAIN (rise edge)               0.00       0.00
+U1/REG1/Q                                0.02       0.02
+U1/U2/A                                  0.05       0.07
+U2/U3/Z                                  0.06       0.13
+U2/REG2/D                                0.03       0.16
+
+data arrival time                                   0.16
+
+clock CLK_MAIN (rise edge)               0.30       0.30
+clock network delay                      0.05       0.35
+clock uncertainty                        0.02       0.37
+
+data required time                                  0.37
+
+slack (MET)                                        0.21
+
+
+------------------------------------------------------------
+
+Mode: SCAN
+Corner: SS_0.72V_125C
+Scenario: SCAN_SS
+
+Startpoint: U10/SCANFF1/Q (rising edge-triggered flip-flop)
+Endpoint: U11/SCANFF2/D (rising edge-triggered flip-flop)
+Path Group: SCAN_CLK
+Path Type: max
+
+Point                                    Incr       Path
+------------------------------------------------------------
+clock SCAN_CLK (rise edge)               0.00       0.00
+U10/SCANFF1/Q                            0.10       0.10
+U10/U11/A                                0.25       0.35
+U11/SCANFF2/D                            0.15       0.50
+
+data arrival time                                   0.50
+
+clock SCAN_CLK (rise edge)               1.00       1.00
+clock network delay                      0.10       1.10
+clock uncertainty                       -0.05       1.05
+
+data required time                                  1.05
+
+slack (VIOLATED)                                   -0.55
+
+Mode: FUNC
+Corner: SS_0.72V_125C
+Scenario: FUNC_SS
+
+Startpoint: U1/REG1/Q (rising edge-triggered flip-flop)
+Endpoint: U2/REG2/D (rising edge-triggered flip-flop)
+Path Group: CLK_MAIN
+Path Type: max
+
+Point                                    Incr       Path
+------------------------------------------------------------
+clock CLK_MAIN (rise edge)               0.00       0.00
+clock network delay (propagated)         0.12       0.12
+U1/REG1/Q                                0.05       0.17
+U1/U2/A                                  0.22       0.39
+U2/U3/Z                                  0.35       0.74
+U2/REG2/D                                0.10       0.84
+
+data arrival time                                   0.84
+
+clock CLK_MAIN (rise edge)               1.20       1.20
+clock network delay (propagated)         0.18       1.38
+clock reconvergence pessimism removal   -0.06       1.32
+clock uncertainty                       -0.08       1.24
+library setup time                      -0.05       1.19
+
+data required time                                  1.19
+
+slack (VIOLATED)                                   -0.35
+
+
+------------------------------------------------------------
+
+Startpoint: U5/REG5/Q (rising edge-triggered flip-flop)
+Endpoint: U8/REG8/D (rising edge-triggered flip-flop)
+Path Group: CLK_MAIN
+Path Type: min
+
+Point                                    Incr       Path
+------------------------------------------------------------
+clock CLK_MAIN (rise edge)               0.00       0.00
+clock network delay (propagated)         0.05       0.05
+U5/REG5/Q                                0.03       0.08
+U5/U6/A                                  0.04       0.12
+U6/U7/Z                                  0.05       0.17
+U8/REG8/D                                0.02       0.19
+
+data arrival time                                   0.19
+
+clock CLK_MAIN (rise edge)               0.30       0.30
+clock network delay (propagated)         0.07       0.37
+clock reconvergence pessimism removal   -0.02       0.35
+clock uncertainty                        0.03       0.38
+library hold time                        0.04       0.42
+
+data required time                                  0.42
+
+slack (MET)                                        0.23
+
+
+------------------------------------------------------------
+
+Mode: FUNC
+Corner: FF_0.88V_0C
+Scenario: FUNC_FF
+
+Startpoint: IN_PORT (input port)
+Endpoint: U10/REG10/D (rising edge-triggered flip-flop)
+Path Group: INPUTS
+Path Type: max
+
+Point                                    Incr       Path
+------------------------------------------------------------
+input external delay                     0.40       0.40
+net delay                                0.10       0.50
+U9/U10/A                                 0.15       0.65
+U10/REG10/D                              0.05       0.70
+
+data arrival time                                   0.70
+
+clock CLK_MAIN (rise edge)               1.00       1.00
+clock network delay                      0.12       1.12
+clock uncertainty                       -0.05       1.07
+library setup time                      -0.04       1.03
+
+data required time                                  1.03
+
+slack (MET)                                        0.33
+
+
+------------------------------------------------------------
+
+Mode: SCAN
+Corner: SS_0.72V_125C
+Scenario: SCAN_SS
+
+Startpoint: U20/SCANFF1/Q (rising edge-triggered flip-flop)
+Endpoint: OUT_PORT (output port)
+Path Group: OUTPUTS
+Path Type: max
+
+Point                                    Incr       Path
+------------------------------------------------------------
+clock SCAN_CLK (rise edge)               0.00       0.00
+clock network delay                      0.10       0.10
+U20/SCANFF1/Q                            0.08       0.18
+U20/U21/A                                0.20       0.38
+net delay                                0.15       0.53
+output external delay                    0.30       0.83
+
+data arrival time                                   0.83
+
+required time (external)                            0.80
+
+slack (VIOLATED)                                   -0.03
